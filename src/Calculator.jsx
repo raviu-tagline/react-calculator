@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import Row from './calcomponents/Row';
-import TextArea from './calcomponents/TextArea';
-import Title from './calcomponents/Title';
+import Row from './calcomponent/Row';
+import TextArea from './calcomponent/TextArea';
+import Title from './calcomponent/Title';
 
 export default class Calculator extends React.Component {
     constructor() {
@@ -13,16 +13,13 @@ export default class Calculator extends React.Component {
 
         this.changeVal = this.changeVal.bind(this)
     }
-
-
-
+    
     clearData() {
         this.setState({
             result: 0
         })
     }
     render() {
-        console.log(this.state);
         return (
             <>
                 <div className="card mt-5 mx-5" style={{ width: 15 + '%' }}>
@@ -87,8 +84,8 @@ export default class Calculator extends React.Component {
                         this.setState({ ansString: "Math Error" });
                     else
                         this.setState({ ansString: ans, queString: '' });
-                    break;
                 }
+                break;
             }
             default: {
                 this.setState({ queString: this.state.queString += e.target.value })
